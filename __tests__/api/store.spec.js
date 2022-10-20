@@ -18,4 +18,16 @@ describe("PetStore Swagger - Store Order", () => {
             assert.equal(resposta.body.petId, 991732181);
         });
     })
+
+    it("GET Store Order",() => {
+        const orderId = 1;
+        const petId = 991732181;
+        return request              // chamada para a requisição
+            .get("/store/order/" + orderId)   // consulta pelo id do pet
+            .then((resposta) => {
+                assert.equal(resposta.statusCode, 200); // comunicação ok
+                assert.equal(resposta.body.petId, petId);  // valida o id do pet
+                assert.equal(resposta.body.status, "placed");  // nome do pet
+            });
+    })
 })
