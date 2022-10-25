@@ -3,8 +3,10 @@
 
 const { Builder, By } = require("selenium-webdriver")
 const { assert } = require("assert")
+const chromedriver = require("chromedriver") // Ref ao Chrome Driver
+
 // Executa
-test("Comprar Passagem via programação", () => {
+describe("Comprar Passagem via programação", () => {
     
     let driver          // a variavel/objeto que receberá o Selenium
 
@@ -13,7 +15,7 @@ test("Comprar Passagem via programação", () => {
         // Instanciar o Selenium WebDriver para controlar o Chrome
         driver = await new Builder().forBrowser("chrome").build()
         // Configurar o tempo de espera máxima do Selenium
-        await driver.manage().setTimeouts(30000)
+        await driver.manage().setTimeouts({implicit: 30000})
     })
 
     // Finalizar
@@ -30,19 +32,23 @@ test("Comprar Passagem via programação", () => {
         // selecionar a origem como São Paolo
         {
             const dropdown = await driver.findElement(By.name("fromPort"))
-            await dropdown.findElement(By.xpath("//options[. = 'São Paolo']")).click()
+            await dropdown.findElement(By.xpath("//option[. = 'São Paolo']")).click()
         }
         // selecionar o destino
         {
             const dropdown = await driver.findElement(By.name("toPort"))
-            await dropdown.findElement(By.xpath("//options[. = 'Berlin']")).click()
+            await dropdown.findElement(By.xpath("//option[. = 'Berlin']")).click()
         }
         // clicar no botão Find Flights
         await driver.findElement(By.css(".btn-primary")).click()
-    })
+
         // Valida
         // validar se foi para a página de reserva
-        assert(driver.getTitle() == "BlazeDemo - reserve") 
+        driver.sleep(5000)
+        assert.equal(await driver.getTitle(), "BlazeDemo - reserve") 
+    })
+       
+       
 
 })
 
