@@ -30,11 +30,11 @@ class HomePage extends BasePage {
         // primeiro seleciona o dropdown / combo Origem
         let ddOrigem = await this.driver.findElement(this.dropdownOrigem);
         // em segundo lugar, seleciona a opção no dropdown / combo
-        await ddOrigem.findElement(By.css(`[value]=${origem}`)).click();
+        await ddOrigem.findElement(By.css(`[value="${origem}"]`)).click();
 
         // Selecionar destino
         let ddDestino = await this.driver.findElement(this.dropdownDestino);
-        await ddDestino.findElement(By.css(`[value]=${destino}`)).click();
+        await ddDestino.findElement(By.css(`[value="${destino}"]`)).click();
 
         // Clicar no botão Find Flights
         await this.driver.findElement(this.btnProcurarVoos).click();
