@@ -2,7 +2,7 @@
 // Bibliotecas
 
 const { Builder, By } = require("selenium-webdriver")
-const { assert } = require("assert")
+const assert = require("chai").assert
 const chromedriver = require("chromedriver") // Ref ao Chrome Driver
 
 // Executa
@@ -24,7 +24,7 @@ describe("Comprar Passagem via programação", () => {
     })
 
     // Testar
-    it("Comprar Passagem WD", async function() {
+    it("Comprar Passagem WD", async () => {
         // abrir o site no Chrome, sendo controlado pelo Selenium
         await driver.get("https://www.blazedemo.com")
         // clicar no combo origem / embarque
