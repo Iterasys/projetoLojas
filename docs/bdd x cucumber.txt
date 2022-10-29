@@ -1,0 +1,48 @@
+BDD = Behavior Driven Development
+      Desenvolvimento Direcionado pelo Comportamento
+
+      O PO traz para o time os desejos, necessidades e dores dos usuários
+      O PO escreve as user stories, discute e esclarece com o time
+
+      Dentro das user stories há uma seção chamada critérios de aceite
+      Esses critérios são escritos a 4 mãos com os Testers/QAs
+
+      O objetivo da abordagem BDD é melhorar a comunicação dentro do time
+      entre PO, Tester/QA e os Devs
+
+Gherkin = Linguagem para descrição de comportamentos e de critérios
+    Given = Dado
+    When  = Quando
+    And   = E
+    Then  = Então
+
+    Existem várias outras palavras (não muitas), vide:
+    https://cucumber.io/docs/gherkin/
+
+    Gherkin é pickles de pepino na Irlanda do Norte
+
+    Exemplo:
+
+    Dado que acesso o site da Iterasys
+    Quando clico em Login
+    E preencho o meu e-mail e senha
+    E cliquei no botão Entrar
+    Entao exibe a minha lista de curso
+    E exibe a minha foto ou iniciais no canto direito superior
+
+Cucumber = pepino
+    Framework para conectar as especificações de negócio escritas em 
+    Gherkin (.feature), dentro de uma abordagem BDD, com a automação de 
+    Testes
+
+Precisaremos instalar:
+- plugin
+- pacote/bibliotecas
+
+Para cada Linguagem de Programação/Framework existe uma implementação
+diferente de Cucumber
+- Java:         Cucumber
+- JavaScript:   CucumberJS
+- Python:       Behave
+- C#:           SpecFlow
+- Ruby:         Capybara / Spinach
